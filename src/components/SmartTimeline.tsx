@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { db, type UserFavorite } from '../db/database';
+import { useLiveQuery } from 'dexie-react-hooks';
 import { 
   getCurrentContext, getSmartFeed, 
   type CurrentContext, type ResolvedFeedItem 
 } from '../utils/contextEngine';
-import { type PrayerTimes } from '../utils/prayerTimes';
+import { type PrayerTimes, getNextPrayer } from '../utils/prayerTimes';
+import { getHijriDate } from '../utils/hijriCalendar';
 import { 
   Clock, Compass, Sparkles, Check, CheckSquare, Square, 
   BookOpen, Heart, Share2, Copy, Calendar, Bookmark, Award, HelpCircle
@@ -46,6 +48,28 @@ export function SmartTimeline({
   });
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  // Fetch user favorites for instant state update
+  const favorites = useLiveQuery(() => db.user_favorites.toArray()) || [];
+
+  // Hijri date and Gregorian date calculations
+  const hijriToday = useMemo(() => {
+    return getHijriDate(currentTime, hijriAdjustment);
+  }, [currentTime, hijriAdjustment]);
+
+  const formattedGregorianToday = useMemo(() => {
+    return currentTime.toLocaleDateString('ar-EG', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }, [currentTime]);
+
+  const nextPrayerInfo = useMemo(() => {
+    if (!calculatedTimes) return null;
+    return getNextPrayer(calculatedTimes);
+  }, [calculatedTimes, currentTime]);
 
   // Derive current context
   const context = useMemo(() => {
@@ -171,7 +195,41 @@ export function SmartTimeline({
   return (
     <div className="space-y-6" id="smart-timeline-component">
       
-      {/* 1. Dynamic Phase Banner */}
+      {/* 1. Gregorian & Hijri Date Header Widget with Next Prayer Countdown */}
+      <div className={`p-6 rounded-3xl border ${getContainerClass()} flex flex-col md:flex-row md:items-center md:justify-between gap-4 relative overflow-hidden`} id="date-header-card">
+        <div className="absolute -left-6 -bottom-6 text-slate-500/5 font-serif text-8xl pointer-events-none font-bold">Worship</div>
+        <div>
+          <span className="text-[10px] uppercase font-sans tracking-wider px-2.5 py-0.5 bg-amber-500/10 text-amber-500 dark:text-amber-400 font-semibold rounded-full border border-amber-500/20">
+            اليوم الحالي
+          </span>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 font-serif mt-2">
+            {hijriToday.formatted}
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-sans">
+            {formattedGregorianToday}
+          </p>
+        </div>
+
+        {/* Dynamic countdown summary */}
+        {nextPrayerInfo ? (
+          <div className="bg-amber-500/5 border border-amber-500/10 p-3.5 rounded-2xl flex items-center gap-3.5">
+            <div className="text-right">
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-sans">الصلاة القادمة: <span className="font-bold text-amber-500">{nextPrayerInfo.nextPrayerArabic}</span></p>
+              <p className="text-lg font-mono font-bold text-amber-600 dark:text-amber-400 mt-0.5">
+                {nextPrayerInfo.countdown}
+              </p>
+              <p className="text-[10px] text-slate-400 font-sans">متبقي على وقت الأذان</p>
+            </div>
+            <div className="w-10 h-10 bg-amber-500/10 border border-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5 animate-pulse" />
+            </div>
+          </div>
+        ) : (
+          <div className="text-xs text-slate-400">جاري حساب مواقيت الصلاة...</div>
+        )}
+      </div>
+
+      {/* 2. Dynamic Phase Banner */}
       <div className={`p-6 rounded-3xl border ${getContainerClass()} flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 relative overflow-hidden`} id="timeline-phase-banner">
         <div className="absolute -left-10 -bottom-10 text-slate-500/5 font-serif text-9xl pointer-events-none font-bold select-none">Feed</div>
         <div className="flex items-start gap-4">
@@ -349,13 +407,24 @@ export function SmartTimeline({
                           <Copy className="w-4 h-4" />
                         )}
                       </button>
-                      <button
-                        onClick={() => handleToggleFavorite(item)}
-                        className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-red-500 transition-colors"
-                        title="أضف للمفضلة"
-                      >
-                        <Bookmark className="w-4 h-4" />
-                      </button>
+                      {(() => {
+                        const isFav = favorites.some(
+                          (f) => f.type === item.contentType && f.itemId === item.id
+                        );
+                        return (
+                          <button
+                            onClick={() => handleToggleFavorite(item)}
+                            className={`p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors ${
+                              isFav
+                                ? 'text-red-500 hover:text-red-600'
+                                : 'text-slate-400 hover:text-red-500'
+                            }`}
+                            title={isFav ? 'إزالة من المفضلة' : 'أضف للمفضلة'}
+                          >
+                            <Bookmark className={`w-4 h-4 ${isFav ? 'fill-current' : ''}`} />
+                          </button>
+                        );
+                      })()}
                     </div>
 
                   </div>

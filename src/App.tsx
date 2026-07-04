@@ -11,6 +11,7 @@ import { RelatedContent } from './components/RelatedContent';
 import { ReaderMode } from './components/ReaderMode';
 import { QiblaCompass } from './components/QiblaCompass';
 import { SmartTimeline } from './components/SmartTimeline';
+import { SearchEngine } from './utils/searchEngine';
 import { useLiveQuery } from 'dexie-react-hooks';
 
 // Icons
@@ -219,33 +220,8 @@ export default function App() {
         setSearchResults(null);
         return;
       }
-      const q = searchQuery.toLowerCase().trim();
-
-      const filterFn = (item: any) => {
-        const textMatch = item.text?.toLowerCase().includes(q) || item.description?.toLowerCase().includes(q);
-        const titleMatch = item.title?.toLowerCase().includes(q) || item.author?.toLowerCase().includes(q) || item.narrator?.toLowerCase().includes(q);
-        const tagMatch = item.tags?.some((t: string) => t.toLowerCase().includes(q));
-        return textMatch || titleMatch || tagMatch;
-      };
-
-      const matchedHadiths = localHadiths.filter(filterFn);
-      const matchedWisdoms = localWisdoms.filter(filterFn);
-      const matchedTaqibat = localTaqibat.filter(filterFn);
-      const matchedMunajat = localMunajat.filter(filterFn);
-      const matchedWeeklyDuas = localWeeklyDuas.filter(filterFn);
-      const matchedWeeklyZiyarat = localWeeklyZiyarat.filter(filterFn);
-      const matchedEvents = localEvents.filter(filterFn);
-
-      setSearchResults({
-        hadiths: matchedHadiths,
-        wisdoms: matchedWisdoms,
-        taqibat: matchedTaqibat,
-        munajat: matchedMunajat,
-        weeklyDuas: matchedWeeklyDuas,
-        weeklyZiyarat: matchedWeeklyZiyarat,
-        events: matchedEvents,
-        totalCount: matchedHadiths.length + matchedWisdoms.length + matchedTaqibat.length + matchedMunajat.length + matchedWeeklyDuas.length + matchedWeeklyZiyarat.length + matchedEvents.length
-      });
+      const results = await SearchEngine.search(searchQuery);
+      setSearchResults(results);
     }
 
     const delayDebounce = setTimeout(() => {
@@ -253,7 +229,7 @@ export default function App() {
     }, 300);
 
     return () => clearTimeout(delayDebounce);
-  }, [searchQuery, localHadiths, localWisdoms, localTaqibat, localMunajat, localWeeklyDuas, localWeeklyZiyarat, localEvents]);
+  }, [searchQuery]);
 
   // Set default calendar selected cell to today on load
   useEffect(() => {
