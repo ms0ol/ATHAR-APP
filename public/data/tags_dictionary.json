@@ -1,0 +1,9 @@
+[
+  { "id": "tag_sabr", "tag": "الصبر", "category": "أخلاق" },
+  { "id": "tag_ilm", "tag": "العلم", "category": "معارف" },
+  { "id": "tag_akhlaq", "tag": "الأخلاق", "category": "أخلاق" },
+  { "id": "tag_salah", "tag": "الصلاة", "category": "عبادات" },
+  { "id": "tag_ramadan", "tag": "رمضان", "category": "مناسبات" },
+  { "id": "tag_rizq", "tag": "الرزق", "category": "معاش" },
+  { "id": "tag_faraj", "tag": "الفرج", "category": "عقائد" }
+]

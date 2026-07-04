@@ -1,0 +1,280 @@
+[
+  {
+    "id": "sf_fajr_before",
+    "title": "🌅 الاستعداد لصلاة الفجر",
+    "content_type": "custom",
+    "content_id": "fajr_before",
+    "trigger_type": "before_prayer",
+    "trigger_value": "fajr",
+    "priority": 10,
+    "start_offset": 60,
+    "end_offset": 0,
+    "description": "استغل وقت السحر العظيم في الاستغفار وتلاوة القرآن الكريم والتهيؤ لصلاة الصبح.",
+    "actions": [
+      "سورة الفجر المباركة",
+      "دعاء يا محسن قد أتاك المسيء",
+      "الاستغفار بالأسحار (سبعين مرة)"
+    ]
+  },
+  {
+    "id": "sf_fajr_during",
+    "title": "🕌 وقت صلاة الفجر",
+    "content_type": "custom",
+    "content_id": "fajr_during",
+    "trigger_type": "during_prayer",
+    "trigger_value": "fajr",
+    "priority": 20,
+    "start_offset": 0,
+    "end_offset": 20,
+    "description": "أقم صلاة الصبح لوقتها، الصلاة عمود الدين إن قبلت قبل ما سواها وإن ردت رد ما سواها."
+  },
+  {
+    "id": "sf_fajr_after",
+    "title": "🌿 بعد صلاة الفجر",
+    "content_type": "custom",
+    "content_id": "fajr_after",
+    "trigger_type": "after_prayer",
+    "trigger_value": "fajr",
+    "priority": 10,
+    "start_offset": 0,
+    "end_offset": 60,
+    "description": "يستحب الاشتغال بالذكر والتعقيب وتلاوة القرآن بعد الفجر لطلب الرزق والبركة.",
+    "actions": [
+      "تسبيح الزهراء عليها السلام (٣٤ التكبير، ٣٣ التحميد، ٣٣ التسبيح)",
+      "تعقيب صلاة الفجر المأثور",
+      "دعاء العهد لتجديد العهد مع صاحب الزمان (عج)"
+    ]
+  },
+  {
+    "id": "sf_dhuhr_before",
+    "title": "☀️ الاستعداد لصلاة الظهر",
+    "content_type": "custom",
+    "content_id": "dhuhr_before",
+    "trigger_type": "before_prayer",
+    "trigger_value": "dhuhr",
+    "priority": 10,
+    "start_offset": 30,
+    "end_offset": 0,
+    "description": "تهيأ لصلاة الظهر عند اقتراب زوال الشمس واستعد للوقوف بين يدي الله سبحانه وتعالى."
+  },
+  {
+    "id": "sf_dhuhr_during",
+    "title": "🕌 وقت صلاة الظهر والعصر",
+    "content_type": "custom",
+    "content_id": "dhuhr_during",
+    "trigger_type": "during_prayer",
+    "trigger_value": "dhuhr",
+    "priority": 20,
+    "start_offset": 0,
+    "end_offset": 20,
+    "description": "دخول وقت فريضة الظهرين، يسارع المؤمن لأدائهما في أول الوقت نيلًا للرضوان والرحمة."
+  },
+  {
+    "id": "sf_dhuhr_after",
+    "title": "🌿 بعد صلاة الظهر والعصر",
+    "content_type": "custom",
+    "content_id": "dhuhr_after",
+    "trigger_type": "after_prayer",
+    "trigger_value": "dhuhr",
+    "priority": 10,
+    "start_offset": 0,
+    "end_offset": 60,
+    "description": "عقب صلاتك بالذكر وتلاوة سور التوحيد والقدر والاستغفار المخصوص بعد العصر.",
+    "actions": [
+      "تسبيح الزهراء عليها السلام",
+      "تعقيب صلاة الظهر المأثور",
+      "تعقيب صلاة العصر (الاستغفار سبعين مرة)"
+    ]
+  },
+  {
+    "id": "sf_maghrib_before",
+    "title": "🌇 قبل صلاة المغرب",
+    "content_type": "custom",
+    "content_id": "maghrib_before",
+    "trigger_type": "before_prayer",
+    "trigger_value": "maghrib",
+    "priority": 10,
+    "start_offset": 30,
+    "end_offset": 0,
+    "description": "يقترب غروب الشمس، تهيأ لأداء صلاتي المغرب والعشاء واستحضر الخشوع والتقرب لله."
+  },
+  {
+    "id": "sf_maghrib_during",
+    "title": "🕌 وقت صلاة المغرب والعشاء",
+    "content_type": "custom",
+    "content_id": "maghrib_during",
+    "trigger_type": "during_prayer",
+    "trigger_value": "maghrib",
+    "priority": 20,
+    "start_offset": 0,
+    "end_offset": 25,
+    "description": "حان وقت صلاة المغرب الشرعي، يُنصح بالمسارعة لأداء فريضة العشائين تقربًا لله وزلفى."
+  },
+  {
+    "id": "sf_maghrib_after",
+    "title": "🌿 بعد صلاة المغرب والعشاء",
+    "content_type": "custom",
+    "content_id": "maghrib_after",
+    "trigger_type": "after_prayer",
+    "trigger_value": "maghrib",
+    "priority": 10,
+    "start_offset": 0,
+    "end_offset": 60,
+    "description": "يستحب الاشتغال بالتعقيب وقراءة الأدعية المأثورة وصلاة الغفيلة وصلاة الوتيرة.",
+    "actions": [
+      "تسبيح الزهراء عليها السلام وجحد الذنوب",
+      "تعقيب صلاة المغرب والتهليل المخصوص",
+      "تعقيب صلاة العشاء وطلب الرزق والستر",
+      "صلاة الغفيلة المباركة بين العشائين"
+    ]
+  },
+  {
+    "id": "sf_night_of_friday",
+    "title": "🌙 أعمال ليلة الجمعة المباركة",
+    "content_type": "custom",
+    "content_id": "night_of_friday",
+    "trigger_type": "night_of_weekday",
+    "trigger_value": "4",
+    "priority": 50,
+    "description": "ليلة الجمعة هي ليلة شريفة معظمة يضاعف فيها الأجر وتستحب فيها العبادات والدعاء المخصوص.",
+    "actions": [
+      "تلاوة دعاء كميل بن زياد المبارك",
+      "زيارة الإمام الحسين عليه السلام (أمين الله أو الزيارة المخصوصة)",
+      "الإكثار من الصلاة على محمد وآل محمد",
+      "الاستغفار للأموات والمؤمنين"
+    ]
+  },
+  {
+    "id": "sf_day_of_friday",
+    "title": "🌅 يوم الجمعة المبارك",
+    "content_type": "custom",
+    "content_id": "day_of_friday",
+    "trigger_type": "weekday",
+    "trigger_value": "5",
+    "priority": 40,
+    "description": "يوم الجمعة هو سيد الأيام ويوم اللجوء لله والطلب من إمام زماننا المهدي (عج).",
+    "actions": [
+      "تلاوة دعاء الندبة ندبة وغيبة للمهدي (عج)",
+      "غسل الجمعة المستحب مؤكداً لطهور الباطن والظاهر",
+      "قراءة سورة الكهف المباركة نور بين الجمعتين",
+      "الصدقة لدفع البلاء وتجليل البركة"
+    ]
+  },
+  {
+    "id": "sf_ashura",
+    "title": "🔴 عاشوراء الحسين (ع)",
+    "content_type": "event_override",
+    "content_id": "ev_ashura",
+    "trigger_type": "hijri_date",
+    "trigger_value": "1-10",
+    "priority": 100,
+    "description": "يوم الحزن والمواساة، ذكرى الفاجعة العظمى واستشهاد سيد الشهداء الإمام الحسين عليه السلام وأهل بيته وصحبه بكربلاء.",
+    "actions": [
+      "قراءة زيارة عاشوراء المشهورة مع اللعن والسلام مئة مرة",
+      "الإمساك عن الطعام والشراب حتى العصر دون نية صوم (شبه صيام)",
+      "تقديم العزاء والاجتماع في مجالس البكاء على مصاب كربلاء",
+      "لعن قتلة الحسين عليه السلام مئة مرة"
+    ]
+  },
+  {
+    "id": "sf_ramadan",
+    "title": "🌙 ضيافة شهر رمضان المبارك",
+    "content_type": "custom",
+    "content_id": "ramadan_month",
+    "trigger_type": "hijri_month",
+    "trigger_value": "9",
+    "priority": 30,
+    "description": "أنت الآن في رحاب شهر رمضان المبارك، أفضل الشهور، أنفاسكم فيه تسبيح ونومكم فيه عبادة.",
+    "actions": [
+      "قراءة دعاء الافتتاح في كل ليلة",
+      "تلاوة كتاب الله والختمات القرآنية المتتابعة",
+      "الصدقة وتفطير المؤمنين والمحتاجين"
+    ]
+  },
+  {
+    "id": "sf_monday",
+    "title": "🌿 يوم الاثنين",
+    "content_type": "custom",
+    "content_id": "monday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "1",
+    "priority": 15,
+    "description": "يوم الاثنين مستحب فيه الأعمال الخاصة وزيارة أئمة البقيع والإمامين الحسن والحسين عليهما السلام.",
+    "actions": [
+      "قراءة دعاء يوم الاثنين ومطالعة معانيه",
+      "زيارة الإمام الحسن المجتبى والإمام الحسين عليهما السلام المخصوصة",
+      "صدقة يوم الاثنين للبركة والتيسير"
+    ]
+  },
+  {
+    "id": "sf_tuesday",
+    "title": "🌿 يوم الثلاثاء",
+    "content_type": "custom",
+    "content_id": "tuesday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "2",
+    "priority": 15,
+    "description": "يوم الثلاثاء مستحب فيه التوسل بالأئمة المعصومين وزيارة الإمام السجاد والباقر والصادق عليهم السلام.",
+    "actions": [
+      "قراءة دعاء يوم الثلاثاء المأثور",
+      "زيارة الإمام السجاد والباقر والصادق عليهم السلام",
+      "دعاء التوسل المأثور بقضاء الحوائج والشفاء"
+    ]
+  },
+  {
+    "id": "sf_wednesday",
+    "title": "🌿 يوم الأربعاء",
+    "content_type": "custom",
+    "content_id": "wednesday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "3",
+    "priority": 15,
+    "description": "يوم الأربعاء مستحب فيه العبادات الخاصة وزيارة الأئمة الكاظم والرضا والجواد والهادي عليهم السلام.",
+    "actions": [
+      "قراءة دعاء يوم الأربعاء المخصوص",
+      "زيارة الأئمة الكاظم والرضا والجواد والهادي عليهم السلام"
+    ]
+  },
+  {
+    "id": "sf_thursday",
+    "title": "🌿 يوم الخميس",
+    "content_type": "custom",
+    "content_id": "thursday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "4",
+    "priority": 15,
+    "description": "يوم الخميس مستحب فيه التقرب لله بزيارة الإمام العسكري وتلاوة دعاء كميل بن زياد المبارك ليلاً.",
+    "actions": [
+      "قراءة دعاء يوم الخميس المبارك",
+      "زيارة الإمام الحسن العسكري عليه السلام"
+    ]
+  },
+  {
+    "id": "sf_saturday",
+    "title": "🌿 يوم السبت",
+    "content_type": "custom",
+    "content_id": "saturday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "6",
+    "priority": 15,
+    "description": "يوم السبت مستحب فيه قراءة الأدعية وزيارة رسول الله صلى الله عليه وآله وسلم.",
+    "actions": [
+      "قراءة دعاء يوم السبت الشريف",
+      "زيارة النبي الأعظم صلى الله عليه وآله وسلم"
+    ]
+  },
+  {
+    "id": "sf_sunday",
+    "title": "🌿 يوم الأحد",
+    "content_type": "custom",
+    "content_id": "sunday_acts",
+    "trigger_type": "weekday",
+    "trigger_value": "0",
+    "priority": 15,
+    "description": "يوم الأحد مستحب فيه العبادات الخاصة وزيارة أمير المؤمنين وفاطمة الزهراء عليهما السلام.",
+    "actions": [
+      "قراءة دعاء يوم الأحد المبارك",
+      "زيارة أمير المؤمنين علي بن أبي طالب عليه السلام وزيارة فاطمة الزهراء عليها السلام"
+    ]
+  }
+]

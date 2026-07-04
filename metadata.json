@@ -1,0 +1,6 @@
+{
+  "name": "رفيق العبادة اليومي",
+  "description": "رفيق عبادة ذكي تفاعلي يعمل بالكامل بدون إنترنت، يحتوي على مواقيت الصلاة والتقويم الهجري والأدعية والزيارات والأحاديث الشريفة والحكم والبحث الشامل.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

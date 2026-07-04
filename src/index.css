@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Tajawal:wght@300;400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", system-ui, sans-serif;
+  --font-serif: "Amiri", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-tajawal: "Tajawal", "Cairo", sans-serif;
+}
+
+/* Custom styles for the applet */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.45);
+}
+
+/* Dynamic Font Classes */
+.font-amiri {
+  font-family: 'Amiri', serif;
+}
+.font-cairo {
+  font-family: 'Cairo', sans-serif;
+}
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
