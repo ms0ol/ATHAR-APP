@@ -176,6 +176,8 @@ export default function App() {
   }, []);
 
   // Recalculate prayer times whenever date, preset city, or calculation method changes
+  const currentDateKey = `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}`;
+
   useEffect(() => {
     const times = calculatePrayerTimes(
       currentTime,
@@ -185,7 +187,7 @@ export default function App() {
       settings.calculationMethod
     );
     setCalculatedTimes(times);
-  }, [currentTime, settings.latitude, settings.longitude, settings.timezone, settings.calculationMethod]);
+  }, [currentDateKey, settings.latitude, settings.longitude, settings.timezone, settings.calculationMethod]);
 
   // Clock tick timer (once per second) to update count downs and real-time clocks
   useEffect(() => {

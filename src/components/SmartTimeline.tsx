@@ -71,22 +71,34 @@ export function SmartTimeline({
     return getNextPrayer(calculatedTimes);
   }, [calculatedTimes, currentTime]);
 
-  // Derive current context
+  // Derive current context only when the actual clock minute changes to avoid second-by-second rebuilds
+  const currentMinuteKey = useMemo(() => {
+    return `${currentTime.getFullYear()}-${currentTime.getMonth()}-${currentTime.getDate()}_${currentTime.getHours()}:${currentTime.getMinutes()}`;
+  }, [currentTime]);
+
   const context = useMemo(() => {
     if (!calculatedTimes) return null;
     return getCurrentContext(calculatedTimes, hijriAdjustment);
-  }, [calculatedTimes, currentTime, hijriAdjustment]);
+  }, [calculatedTimes, currentMinuteKey, hijriAdjustment]);
 
-  // Fetch the active feed whenever context updates
+  // Fetch the active feed whenever context updates (silently after initial load to prevent flashing)
   useEffect(() => {
+    let active = true;
     async function loadFeed() {
       if (!context) return;
-      setLoading(true);
+      if (feed.length === 0) {
+        setLoading(true);
+      }
       const items = await getSmartFeed(context);
-      setFeed(items);
-      setLoading(false);
+      if (active) {
+        setFeed(items);
+        setLoading(false);
+      }
     }
     loadFeed();
+    return () => {
+      active = false;
+    };
   }, [context]);
 
   // Save completed steps to localStorage
